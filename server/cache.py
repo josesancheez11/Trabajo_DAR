@@ -1,5 +1,6 @@
 import time
 
+# Diccionario global que almacena los registros
 cache = {}
 
 def agregar_registro(nombre, ip, ttl):
@@ -34,9 +35,9 @@ def limpiar_cache():
 
     for nombre, registro in cache.items():
         ttl_restante = registro["ttl_original"] - (ahora - registro["timestamp_creacion"])
-
         if ttl_restante <= 0:
             dominios_a_borrar.append(nombre)
 
     for nombre in dominios_a_borrar:
         del cache[nombre]
+        del cache[nombre]    
