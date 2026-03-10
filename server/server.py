@@ -43,4 +43,7 @@ def iniciar_servidor():
         hilo.start()
 
 if __name__ == "__main__":
+    iniciar_servidor()   hilo.start()
+
+if __name__ == "__main__":
     iniciar_servidor()
