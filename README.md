@@ -1,2 +1,3 @@
-#Protocolo de Resolución de Nombres (Tipo DNS) con Gestión de Caché y Expiración
+# Caso de Uso 11: Protocolo de Resolución de Nombres
+## Descripción del Proyecto
 Este proyecto implementa un protocolo de aplicación cliente-servidor diseñado para resolver nombres simbólicos en direcciones IP, simulando el comportamiento de un sistema DNS. El núcleo del servicio es un servidor centralizado que gestiona una base de datos de registros en caché, controlando rigurosamente el ciclo de vida de cada entrada mediante tiempos de validez (TTL). El sistema está diseñado para garantizar la consistencia de los datos, la limpieza automática de registros caducados y una comunicación estructurada y correlacionada entre el cliente y el servidor.
