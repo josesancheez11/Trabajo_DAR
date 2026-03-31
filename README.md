@@ -17,13 +17,13 @@ Este proyecto implementa un protocolo de aplicación cliente-servidor diseñado 
 Para evitar errores de ruta, abre la terminal en la raíz del proyecto.
 * **Opción A: Prueba Local (Misma máquina)**
 
-Servidor: python server/server.py
-Cliente: python client/client.py 127.0.0.1
+Servidor: `python server.py`
+Cliente: `python client.py`
 
 * **Opción B: Prueba en Red (Dos máquinas)**
 
-En el Servidor, ejecuta: python server/server.py
-En el Cliente, ejecuta: python client/client.py <IP_DEL_SERVIDOR>
+En el Servidor, ejecuta: `python server.py`
+En el Cliente, ejecuta: `python client.py <IP_DEL_SERVIDOR>`
 ## 5. Ejemplos de Uso
 ### 📋 Especificación de Comandos
 
