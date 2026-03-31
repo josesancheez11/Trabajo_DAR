@@ -39,5 +39,4 @@ def limpiar_cache():
             dominios_a_borrar.append(nombre)
 
     for nombre in dominios_a_borrar:
-        del cache[nombre]
-        del cache[nombre]    
+        del cache[nombre]   
