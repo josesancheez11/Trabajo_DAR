@@ -14,19 +14,15 @@ Este proyecto implementa un protocolo de aplicación cliente-servidor diseñado 
 * **Librerías:** Únicamente librerías estándar de Python (`socket`, `threading`, `time`). No requiere instalaciones externas.
 
 ## 4. Instrucciones de Lanzamiento
-4. Instrucciones de Lanzamiento
 Para evitar errores de ruta, abre la terminal en la raíz del proyecto.
-
-Opción A: Prueba Local (Misma máquina)
+* **Opción A: Prueba Local (Misma máquina)**
 
 Servidor: python server/server.py
-
 Cliente: python client/client.py 127.0.0.1
 
-Opción B: Prueba en Red (Dos máquinas)
+* **Opción B: Prueba en Red (Dos máquinas)**
 
 En el Servidor, ejecuta: python server/server.py
-
 En el Cliente, ejecuta: python client/client.py <IP_DEL_SERVIDOR>
 ## 5. Ejemplos de Uso
 ### 📋 Especificación de Comandos
