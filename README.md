@@ -9,7 +9,7 @@ Este proyecto implementa un protocolo de aplicación cliente-servidor diseñado 
 * **Mecanismo de Caché:** El servidor mantiene un diccionario interno donde almacena las asociaciones Nombre-IP y el TTL restante. Una vez el TTL expira, el registro se marca como inválido.
 
 ## 3. Requisitos de Ejecución
-* **Lenguaje:** Python 3.14.
+* **Lenguaje:** Python 3.10 o superior
 * **Sistema Operativo:** Windows (probado en entorno local y red local).
 * **Librerías:** Únicamente librerías estándar de Python (`socket`, `threading`, `time`). No requiere instalaciones externas.
 
@@ -26,6 +26,11 @@ Para probar el protocolo en dos máquinas distintas:
     
 
 ## 5. Ejemplos de Uso
-* **Consulta exitosa:** El cliente solicita `www.ugr.es` -> El servidor devuelve la IP y el TTL actual.
-* **Consulta repetida:** El cliente solicita el mismo nombre -> El servidor devuelve la misma IP pero con el **TTL decreciente**.
-* **Nombre inexistente:** El servidor responde con un código de error específico si el nombre no está en la base de datos o ha expirado.
+### 📋 Especificación de Comandos
+
+| Comando | Sintaxis | Descripción | Ejemplo de Respuesta |
+| :--- | :--- | :--- | :--- |
+| **ADD** | `ID ADD <nombre> <IP> <TTL>` | Registra un dominio en la caché con un tiempo de vida. | `ID OK` |
+| **QUERY** | `ID QUERY <nombre>` | Consulta la IP y el TTL restante de un nombre. | `ID OK <IP> <TTL>` |
+| **NOTFOUND** | `-` | Respuesta del servidor si el dominio no existe o expiró. | `ID NOTFOUND` |
+| **SALIR** | `salir` | Finaliza la sesión TCP de forma ordenada. | `Desconexión` |
