@@ -21,7 +21,7 @@ def manejar_cliente(conn, addr):
 
             respuesta = procesar_mensaje(mensaje)
 
-            conn.sendall((respuesta + "\n").encode())
+            conn.sendall((respuesta + "\r\n").encode())
 
     finally:
         conn.close()
@@ -41,9 +41,6 @@ def iniciar_servidor():
 
         hilo = threading.Thread(target=manejar_cliente, args=(conn, addr))
         hilo.start()
-
-if __name__ == "__main__":
-    iniciar_servidor()   hilo.start()
-
+        
 if __name__ == "__main__":
     iniciar_servidor()
