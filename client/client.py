@@ -30,7 +30,7 @@ def iniciar_cliente():
             continue
 
         client.sendall((mensaje + "\r\n").encode())
-        respuesta = client.recv(1024).decode().strip
+        respuesta = client.recv(1024).decode().strip()
         print("Respuesta:", respuesta)
 
     client.close()
