@@ -41,9 +41,6 @@ def iniciar_servidor():
 
         hilo = threading.Thread(target=manejar_cliente, args=(conn, addr))
         hilo.start()
-
-if __name__ == "__main__":
-    iniciar_servidor()   hilo.start()
-
+        
 if __name__ == "__main__":
     iniciar_servidor()
