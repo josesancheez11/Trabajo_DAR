@@ -29,8 +29,8 @@ def iniciar_cliente():
             print("Opción no válida")
             continue
 
-        client.sendall((mensaje + "\n").encode())
-        respuesta = client.recv(1024).decode()
+        client.sendall((mensaje + "\r\n").encode())
+        respuesta = client.recv(1024).decode().strip
         print("Respuesta:", respuesta)
 
     client.close()
