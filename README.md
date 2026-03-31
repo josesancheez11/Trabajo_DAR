@@ -52,6 +52,7 @@ Para facilitar la navegación por el proyecto, los archivos se han organizado de
 │   ├── trafico_red/        
 │   └── ESPECIFICACION PROTOCOLO.pdf  
 └── README.md
+```
 ## 7. Verificación del Protocolo (Análisis de Tráfico)
 
 Para garantizar la robustez del sistema, se ha realizado un análisis exhaustivo con **Wireshark**, cuyas evidencias se encuentran en la carpeta `/docs`. Los hitos verificados son:
