@@ -21,7 +21,7 @@ def manejar_cliente(conn, addr):
 
             respuesta = procesar_mensaje(mensaje)
 
-            conn.sendall((respuesta + "\n").encode())
+            conn.sendall((respuesta + "\r\n").encode())
 
     finally:
         conn.close()
