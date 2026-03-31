@@ -52,14 +52,13 @@ Para facilitar la navegación por el proyecto, los archivos se han organizado de
 │   ├── trafico_red/        
 │   └── ESPECIFICACION PROTOCOLO.pdf  
 └── README.md
+## 7. Verificación del Protocolo (Análisis de Tráfico)
 
-## 7. Verificación de Protocolo (Análisis de Tráfico)
+Para garantizar la robustez del sistema, se ha realizado un análisis exhaustivo con **Wireshark**, cuyas evidencias se encuentran en la carpeta `/docs`. Los hitos verificados son:
 
-Para garantizar la robustez del sistema, se ha realizado un análisis exhaustivo con **Wireshark**, documentado en la carpeta `/docs`. Los hitos verificados son:
+*   **Handshake TCP:** Confirmación del establecimiento de conexión fiable (SYN, SYN-ACK, ACK) antes de cualquier intercambio de datos de aplicación.
+*   **Integridad de PDUs:** Verificación de que los comandos `ADD` y `QUERY` se transmiten íntegramente respetando el formato definido.
+*   **Dinámica del TTL:** Observación en tiempo real de cómo el servidor descuenta los segundos de validez en respuestas `QUERY` sucesivas hasta la expiración del registro.
+*   **Gestión de Errores:** Validación de la respuesta `NOTFOUND` ante consultas de dominios inexistentes o registros caducados.
 
-*   **Handshake TCP:** Confirmación del establecimiento de conexión fiable (SYN, SYN-ACK, ACK) antes de cualquier intercambio de datos.
-*   **Integridad de PDUs:** Verificación de que los comandos `ADD` y `QUERY` se transmiten íntegramente dentro del segmento TCP.
-*   **Dinámica del TTL:** Observación en tiempo real de cómo el servidor descuenta los segundos de validez en respuestas `QUERY` sucesivas.
-*   **Gestión de Errores:** Validación de la respuesta `NOTFOUND` ante dominios inexistentes o registros cuya vida útil ha expirado.
-
-> **Nota:** Las trazas originales en formato `.pcapng` están disponibles para su inspección técnica en `docs/trafico_red/`.
+> **Nota:** Las trazas originales en formato `.pcapng` están disponibles para su inspección técnica detallada en la ruta `docs/trafico_red/`.
