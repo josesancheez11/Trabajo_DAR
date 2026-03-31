@@ -34,3 +34,32 @@ Para probar el protocolo en dos máquinas distintas:
 | **QUERY** | `ID QUERY <nombre>` | Consulta la IP y el TTL restante de un nombre. | `ID OK <IP> <TTL>` |
 | **NOTFOUND** | `-` | Respuesta del servidor si el dominio no existe o expiró. | `ID NOTFOUND` |
 | **SALIR** | `salir` | Finaliza la sesión TCP de forma ordenada. | `Desconexión` |
+
+## 6. Estructura del Repositorio
+
+Para facilitar la navegación por el proyecto, los archivos se han organizado de la siguiente manera:
+
+```text
+/
+├── client/
+│   └── client.py          
+├── server/
+│   ├── server.py         
+│   ├── cache.py            
+│   └── protocol.py        
+├── docs/
+│   ├── capturas/           
+│   ├── trafico_red/        
+│   └── ESPECIFICACION PROTOCOLO.pdf  
+└── README.md
+
+## 7. Verificación de Protocolo (Análisis de Tráfico)
+
+Para garantizar la robustez del sistema, se ha realizado un análisis exhaustivo con **Wireshark**, documentado en la carpeta `/docs`. Los hitos verificados son:
+
+*   **Handshake TCP:** Confirmación del establecimiento de conexión fiable (SYN, SYN-ACK, ACK) antes de cualquier intercambio de datos.
+*   **Integridad de PDUs:** Verificación de que los comandos `ADD` y `QUERY` se transmiten íntegramente dentro del segmento TCP.
+*   **Dinámica del TTL:** Observación en tiempo real de cómo el servidor descuenta los segundos de validez en respuestas `QUERY` sucesivas.
+*   **Gestión de Errores:** Validación de la respuesta `NOTFOUND` ante dominios inexistentes o registros cuya vida útil ha expirado.
+
+> **Nota:** Las trazas originales en formato `.pcapng` están disponibles para su inspección técnica en `docs/trafico_red/`.
