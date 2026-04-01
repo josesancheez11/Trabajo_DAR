@@ -15,7 +15,7 @@ def iniciar_cliente():
         if opcion == "salir":
             break
 
-        consulta_id = str(uuid.uuid4())[:8]  # ID único corto
+        consulta_id = str(uuid.uuid4())[:8]
 
         if opcion == "query":
             nombre = input("Introduce el nombre a resolver: ")
