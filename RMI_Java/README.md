@@ -1,37 +1,42 @@
-Práctica 2: Sistema DNS Distribuido con Java RMI
-Este módulo contiene la implementación de un servidor DNS utilizando la tecnología Java Remote Method Invocation (RMI), sustituyendo el protocolo de paso de mensajes manual (Sockets) por la invocación directa de métodos remotos.
+🌐 Práctica 2: Sistema DNS Distribuido (Java RMI)
+Este módulo contiene la implementación de un servidor DNS utilizando la tecnología Java Remote Method Invocation (RMI). El objetivo principal ha sido evolucionar el protocolo de paso de mensajes manual (Sockets) de la práctica anterior hacia un modelo de invocación directa de métodos remotos.
 
 🚀 Decisiones de Diseño
-Interfaz Remota: Definida en IDNSService, establece el contrato entre cliente y servidor con métodos tipados (add y query).
+Para garantizar un sistema robusto y eficiente, se han adoptado las siguientes soluciones:
 
-Caché Concurrente: Se utiliza un ConcurrentHashMap para soportar múltiples peticiones simultáneas de forma segura.
+Interfaz Remota (IDNSService): Define el contrato entre cliente y servidor. El uso de métodos tipados (add y query) elimina errores de formato y simplifica la lógica del programador.
 
-Gestión de TTL: Implementamos un borrado de tipo Lazy Deletion. El servidor calcula la expiración al insertar y solo elimina el registro si, al ser consultado, comprueba que el tiempo actual ha superado el límite.
+Caché Concurrente: Implementación mediante ConcurrentHashMap para permitir el acceso simultáneo de múltiples clientes sin condiciones de carrera.
 
-Transparencia de Red: Configuración manual de java.rmi.server.hostname para permitir la comunicación en redes locales reales (fuera de localhost).
+Gestión de TTL (Lazy Deletion): El servidor calcula el instante de expiración en la inserción. La limpieza se realiza "bajo demanda" durante la consulta, optimizando el uso de CPU al evitar hilos de limpieza en segundo plano.
+
+Transparencia de Red: Uso de java.rmi.server.hostname para superar las limitaciones de localhost y permitir el funcionamiento en redes locales reales (Hotspots, LAN universitaria).
 
 🛠️ Instrucciones de Ejecución
-Nota: Es necesario que ambas máquinas estén en la misma red local.
+[!IMPORTANT]
+Es imprescindible que ambas máquinas (Cliente y Servidor) estén conectadas a la misma red local y que los Firewalls permitan el tráfico en el puerto 1099.
 
 1. Compilación
-Compila todos los archivos fuente desde la terminal:
+Desde la terminal, compila todos los archivos fuente:
 
 Bash
 javac IDNSService.java DNSServiceImpl.java ServidorDNS.java ClienteDNS.java
 2. Ejecución del Servidor
-Abre ServidorDNS.java y asegúrate de que la IP en System.setProperty("java.rmi.server.hostname", "TU_IP_AQUI") sea la correcta.
+Modifica en ServidorDNS.java la IP por tu IP local:
+System.setProperty("java.rmi.server.hostname", "TU_IP_AQUI");
 
-Lanza el servidor:
+Lanza el servicio:
 
 Bash
 java ServidorDNS
 3. Ejecución del Cliente
-Abre ClienteDNS.java y verifica que la IP en el método Naming.lookup coincida con la del servidor.
+Asegúrate de que la IP en Naming.lookup("rmi://IP_SERVIDOR/ServicioDNS") sea la correcta en ClienteDNS.java.
 
-Lanza el cliente:
+Inicia el cliente:
 
 Bash
 java ClienteDNS
 📋 Integrantes
 José Sánchez Bueno
+
 Sergio Mozas Blanca
