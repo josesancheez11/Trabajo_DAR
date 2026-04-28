@@ -17,7 +17,7 @@ Para garantizar un sistema robusto y eficiente, se han adoptado las siguientes s
 
 ## 🛠️ Instrucciones de Ejecución
 
-> [!IMPORTANTE]
+> [!IMPORTANT]
 > Es imprescindible que ambas máquinas estén en la **misma red local** y que los Firewalls permitan el tráfico en el puerto **1099**.
 
 ### Pasos para la terminal:
