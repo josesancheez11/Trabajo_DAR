@@ -23,12 +23,13 @@ Para garantizar un sistema robusto y eficiente, se han adoptado las siguientes s
 ### Pasos para la terminal:
 ```bash
 # 1. Compilación de todos los archivos fuente
-javac IDNSService.java DNSServiceImpl.java ServidorDNS.java ClienteDNS.java
+# Desde la carpeta raíz del proyecto:
+javac *.java
 
 # 2. Ejecución del Servidor
-# (Recuerda poner tu IP local en el código de ServidorDNS.java antes)
-java ServidorDNS
+# Para que el servidor sea accesible desde otras máquinas, ejecuta el comando indicando tu IP local (Sustituye 192.168.X.X por tu IP real):
+java -Djava.rmi.server.hostname=192.168.X.X ServidorDNS
 
 # 3. Ejecución del Cliente
-# (Asegúrate de que la IP en ClienteDNS.java coincida con la del servidor)
-java ClienteDNS
+# Ejecuta el cliente apuntando a la IP donde se encuentra el servidor:
+java ClienteDNS 192.168.X.X
