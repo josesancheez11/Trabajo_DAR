@@ -4,16 +4,18 @@ import java.rmi.registry.LocateRegistry;
 public class ServidorDNS {
     public static void main(String[] args) {
         try {
-            System.setProperty("java.rmi.server.hostname", "172.23.203.161");
+            // OPCIONAL: Configurar la IP programáticamente si se pasa por argumento
+            // System.setProperty("java.rmi.server.hostname", "192.168.1.XX");
 
+            // Crear el registro RMI en el puerto 1099
             LocateRegistry.createRegistry(1099);
 
-            DNSServiceImpl objetoRemoto = new DNSServiceImpl();
+            DNSServiceImpl service = new DNSServiceImpl();
+            Naming.rebind("ServicioDNS", service);
 
-            Naming.rebind("ServicioDNS", objetoRemoto);
-
-            System.out.println("Servidor DNS RMI funcionando correctamente...");
+            System.out.println("Servidor DNS RMI listo y esperando conexiones...");
         } catch (Exception e) {
+            System.err.println("Error en el servidor: " + e.getMessage());
             e.printStackTrace();
         }
     }
