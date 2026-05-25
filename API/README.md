@@ -16,10 +16,11 @@ El objetivo principal ha sido transformar una lógica de comunicación basada en
 ---
 
 ## 📂 Estructura del Repositorio
-- `main.py`: Punto de entrada de la API y definición de los endpoints.
-- `schemas.py`: Definición de los modelos de datos para la validación.
-- `informe/`: Contiene el informe técnico en formato **PDF** y las evidencias de tráfico (**capturas Wireshark**).
-
+- `Scripts/`: Contiene los archivos fuente (`main.py`, `schemas.py`).
+- `Capturas/`: Contiene las evidencias de tráfico en formato **.pcapng** (capturas de Wireshark).
+- `API.pdf`: Documentación técnica de la API generada.
+- `Informe de Práctica 3.pdf`: Documento completo de la práctica.
+- `README.md`: Este archivo de documentación.
 ---
 
 ## 🚀 Guía de Inicio y Ejecución
